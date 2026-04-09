@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+# TP React — JSX, HOC, Render Props & Tests
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Projet pédagogique React couvrant les fondamentaux de JSX, les patterns de composition et les tests unitaires/intégration.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Concepts abordés
 
-### `npm start`
+- **JSX** — syntaxe et transformation en `React.createElement()`
+- **Higher-Order Component (HOC)** — enrichir un composant sans le modifier
+- **Render Props** — déléguer l'affichage via une fonction prop
+- **Tests unitaires** — avec Jest et React Testing Library
+- **Tests d'intégration** — simulation d'interactions utilisateur
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
+## demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+https://github.com/user-attachments/assets/d99cd459-a057-4627-b85a-1d696e160d92
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
+## Stack technique
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React 18
+- Jest
+- React Testing Library
+- Create React App
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+git clone https://github.com/ton-user/tp-jsx-tests.git
+cd tp-jsx-tests
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Lancer l'application
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+L'application démarre sur [http://localhost:3000](http://localhost:3000)
 
-## Learn More
+## Lancer les tests
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm test -- --watchAll=false --forceExit
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Résultat attendu :
 
-### Code Splitting
+```
+Test Suites: 4 passed, 4 total
+Tests:       8 passed, 8 total
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Structure du projet
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+src/
+├── App.js                  # Composant principal
+├── App.test.js             # Tests d'intégration App
+├── JSXDemo.js              # Démo JSX vs React.createElement
+├── Button.js               # Composant bouton simple
+├── ButtonWithLogging.js    # Button enrichi par le HOC
+├── withLogging.js          # HOC — log des props
+├── withTimestamp.js        # HOC — affiche le timestamp
+├── DataLoader.js           # Render Props — fournit des données
+├── FilterList.js           # Render Props — liste filtrable
+├── Greeting.js             # Composant simple
+├── Greeting.test.js        # Test unitaire
+├── Counter.js              # Composant avec état
+├── Counter.test.js         # Test d'intégration avec fireEvent
+├── LoginForm.js            # Formulaire avec validation
+└── LoginForm.test.js       # Test validation formulaire
+```
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Fichiers clés
 
-### Advanced Configuration
+### withLogging.js — HOC
+Affiche les props reçues dans la console à chaque rendu.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### DataLoader.js — Render Props
+Fournit une liste de données. Le composant parent décide comment les afficher via la prop `render`.
 
-### Deployment
+### FilterList.js — Render Props avec filtre
+Liste interactive avec champ de recherche. Utilise le pattern Render Props pour déléguer l'affichage.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Résultats des tests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| Suite | Tests | Statut |
+|---|---|---|
+| App.test.js | 4 | Pass |
+| Greeting.test.js | 1 | Pass |
+| Counter.test.js | 1 |  Pass |
+| LoginForm.test.js | 2 | Pass |
+![pass](https://github.com/user-attachments/assets/ad23bb16-fd86-418d-a6be-04633e060103)
+
+
+---
+
+--
+
+## Auteur
+
+Réalisé dans le cadre d'un TP React — Formation Développement Web.
