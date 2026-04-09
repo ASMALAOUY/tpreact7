@@ -19,6 +19,10 @@ Projet pédagogique React couvrant les fondamentaux de JSX, les patterns de comp
 
 
 
+https://github.com/user-attachments/assets/cb5428b7-e5f0-429c-a73e-8ef7a1283111
+
+
+
 
 ---
 ## Stack technique
