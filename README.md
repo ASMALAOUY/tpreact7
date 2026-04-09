@@ -16,7 +16,7 @@ Projet pédagogique React couvrant les fondamentaux de JSX, les patterns de comp
 ## demo
 
 
-https://github.com/user-attachments/assets/d99cd459-a057-4627-b85a-1d696e160d92
+
 
 
 
